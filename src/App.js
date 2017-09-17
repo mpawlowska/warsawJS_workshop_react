@@ -3,7 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import HelloStateless from './components/hello-stateless'
 import HelloStateful from './components/hello-stateful'
+import Counter from './components/counter'
 
+// Wykomentowałam, bo przerzuciłam komponentu do oddzielnego katalogu
 // Tworzę obiekt, który ma być zwykła zmienną / funkcją
 // const HelloStateless = ({ name }) => <div>Hello {name}</div>;
     // parametr stateless to po prostu propsy
@@ -29,6 +31,7 @@ class App extends Component {
         </div>
         <HelloStateless name="Magda"/>
           <HelloStateful name="Seba"/>
+          <Counter/>
       </div>
     );
   }
