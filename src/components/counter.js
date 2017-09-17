@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 
 class Counter extends Component {
 
-    // definiuję initial state - 1 sposób - wykomentowany
+    // definiuję initial state - 1. sposób - wykomentowany
     // state = {
     //     count: 10
     // }
 
-    // definiuję initial state - 2 sposób:
+    // definiuję initial state - 2. sposób:
     constructor(props) {
         super(props);  //dziedziczę konstruktory z rodzica - jak uzywam extenda to super jest obowiązkowe
         this.state = {

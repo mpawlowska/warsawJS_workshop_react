@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import HelloStateless from './components/hello-stateless'
-import HelloStateful from './components/hello-stateful'
-import Counter from './components/counter'
+// import HelloStateless from './components/hello-stateless';
+// import HelloStateful from './components/hello-stateful';
+// import Counter from './components/counter';
+import { TransactionCard } from './components';
 
 // Wykomentowałam, bo przerzuciłam komponentu do oddzielnego katalogu
 // Tworzę obiekt, który ma być zwykła zmienną / funkcją
@@ -21,6 +22,31 @@ import Counter from './components/counter'
 // }
 
 class App extends Component {
+    state = {
+        transactions: [
+            {
+                id: 1,
+                description: 'Potwierdzenie uczestnictwa w warsztatach WarsawJS',
+                value: 20,
+                date: '16.09.2017',
+                category: 'Edukacja'
+            },
+            {
+                id: 2,
+                description: 'Bilet na pociąg',
+                value: 120,
+                date: '07.09.2017',
+                category: 'Transport'
+            },
+            {
+                id: 3,
+                description: 'Części do samochodu',
+                value: 430,
+                date: '26.08.2017',
+                category: 'Samochód'
+            }
+        ]
+    };
 
   render() {
     return (
@@ -29,9 +55,10 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <HelloStateless name="Magda"/>
-          <HelloStateful name="Seba"/>
-          <Counter/>
+        {/*<HelloStateless name="Magda"/>*/}
+          {/*<HelloStateful name="Seba"/>*/}
+          {/*<Counter/>*/}
+          <TransactionCard item={this.state.transactions[0]}/>
       </div>
     );
   }
