@@ -12,13 +12,18 @@ class CategoryCard extends Component {
     };
 
     handleSubmit = () => {
-            this.props.onChangeCategoryBudget(this.props.item.id, this.state.budgeted)
+        this.handleChangeEditMode();
+        this.props.onChangeCategoryBudget(this.props.item.id, this.state.budgeted)
     };
 
     handleKeyPress = (e) => {
         if (e.key === 'Enter') {
             this.handleSubmit();
         }
+    };
+
+    handleChangeEditMode = () => {
+        this.setState({ editMode: !this.state.editMode })
     };
 
     render() {
@@ -31,16 +36,20 @@ class CategoryCard extends Component {
                 <h1>{name}</h1>
                 <h2>
                     Budgeted:
-                    {budgeted}
-                    <Input
-                        type="number"
-                        name="budgeted"
-                        value={this.state.budgeted}
-                        placeholder="Budgeted"
-                        onChange={this.handleInputChange}
-                        onBlur={this.handleSubmit}
-                        onKeyPress={this.handleKeyPress}
-                    />
+                    {this.state.editMode ? (
+                            <Input
+                                autoFocus
+                                type="number"
+                                name="budgeted"
+                                value={this.state.budgeted}
+                                placeholder="Budgeted"
+                                onChange={this.handleInputChange}
+                                onBlur={this.handleSubmit}
+                                onKeyPress={this.handleKeyPress}
+                            />
+                        ) : (
+                            <span onClick={this.handleChangeEditMode}>{budgeted}</span>
+                        )}
                     zł
                 </h2>
                 <div className="Category-card__assets">
