@@ -87,6 +87,20 @@ class App extends Component {
         })
     };
 
+    handleChangeCategoryBudget = (id, value) => {
+        const { categories } = this.state;
+        const categoryIndex = categories.findIndex(category => category.id === id);
+
+        if (categoryIndex === -1) {
+            console.error('Category with index ${id} doesnt exist');
+            return;
+        }
+
+        categories[categoryIndex].budgeted = value;
+
+        this.setState({ categories });
+    };
+
     render() {
         return (
             <div className="App">
@@ -106,6 +120,7 @@ class App extends Component {
                 />
                 <CategoryList
                     items={this.state.categories}
+                    handleChangeCategoryBudget={this.handleChangeCategoryBudget}
                 />
             </div>
         );

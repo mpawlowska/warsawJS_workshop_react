@@ -1,20 +1,57 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {Component} from 'react';
+import Input from './input.js';
 
-const CategoryCard = ({ item: {name, budgeted, activity} }) => (
-    <div className="Category-card">
-        <h1>{name}</h1>
-        <h2>Budgeted: {budgeted}</h2>
-        <div className="Category-card__assets">
-            <span>Activity: {activity} zł</span>
-            <span>Available: {budgeted - activity} zł</span>
-        </div>
-    </div>
-);
+class CategoryCard extends Component {
+    state = {
+        editMode: false,
+        budgeted: this.props.item.budgeted // budgeted będzie brało z tego kompenentu
+    };
 
+    handleInputChange = (e) => {
+        this.setState({ budgeted: e.target.value })
+    };
 
-CategoryCard.propTypes = {
-    item: PropTypes.object.isRequired
-};
+    handleSubmit = () => {
+            this.props.onChangeCategoryBudget(this.props.item.id, this.state.budgeted)
+    };
+
+    handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            this.handleSubmit();
+        }
+    };
+
+    render() {
+        const {
+            item: {name, budgeted, activity},
+        } = this.props;
+
+        return (
+            <div className="Category-card">
+                <h1>{name}</h1>
+                <h2>
+                    Budgeted:
+                    {budgeted}
+                    <Input
+                        type="number"
+                        name="budgeted"
+                        value={this.state.budgeted}
+                        placeholder="Budgeted"
+                        onChange={this.handleInputChange}
+                        onBlur={this.handleSubmit}
+                        onKeyPress={this.handleKeyPress}
+                    />
+                    zł
+                </h2>
+                <div className="Category-card__assets">
+                    <span>Activity: {activity} zł</span>
+                    <span>Available: {budgeted - activity} zł</span>
+                </div>
+            </div>
+        );
+    }
+}
 
 export default CategoryCard;
+
+// każda klasa w React ma mieć metodę render(), aby zwracała jakiegos jsx
