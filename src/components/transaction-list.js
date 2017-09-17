@@ -5,7 +5,7 @@ import TransactionForm from './transaction-form';
 
 const TransactionList = ({ items, handleRemoveTransaction, handleAddTransaction }) => (
     <div>
-        <TransactionForm onsubmit={handleAddTransaction}/>
+        <TransactionForm onSubmit={handleAddTransaction}/>
         {items.map(item => (
             <TransactionCard
                 key={item.id}
@@ -19,6 +19,5 @@ const TransactionList = ({ items, handleRemoveTransaction, handleAddTransaction 
 TransactionList.propTypes = {
     items: PropTypes.array.isRequired
 };
-
 
 export default TransactionList;

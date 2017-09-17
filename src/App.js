@@ -54,13 +54,15 @@ class App extends Component {
         })
     };
 
-    handleAddTransaction = (e, transaction) => {
-        e.preventDefault();
+    handleAddTransaction = (transaction) => {
         // const newArray = this.state.transaction;
         // newArray.push(transaction);
 
         this.setState({
-            transactions: [...this.state.transactions, transaction]  // to jest zamiast tego wykomentowanego powyżej - to samo zrobi
+            transactions: [
+                ...this.state.transactions,
+                {id: Math.random().toString(36).substring(7), ...transaction}
+            ]  // to jest zamiast tego wykomentowanego powyżej - to samo zrobi
         })
     };
 

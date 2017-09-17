@@ -14,8 +14,9 @@ class TransactionForm extends Component {
     };
 
     handleSubmitForm = (e) => { // jak mam jeden parametr to mogę napisać bez nawiasów (e), czyli e
-        const {description, value, date, category} = this.state; // jak napisałam to, to mogę wykomentować to co poniżej wykomentowałam, gdzie definiowałam pojedynczo każdy z propsów i zamiast tego napisać tą linijkę ponizej,gdzie tlyko wymieniam propsy
-            this.props.onSubmit(e, {description, value, date, category});
+        e.preventDefault();
+        const {description, value, date, category} = this.state; // jak napisałam to, to mogę wykomentować to co poniżej wykomentowałam, gdzie definiowałam pojedynczo każdy z propsów i zamiast tego napisać tą linijkę ponizej,gdzie tlyko wymieniam props
+            this.props.onSubmit({description, value, date, category});
             // description: this.state.description,
             // value: this.state.value,
             // date: this.state.date,
