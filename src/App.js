@@ -4,7 +4,7 @@ import './App.css';
 // import HelloStateless from './components/hello-stateless';
 // import HelloStateful from './components/hello-stateful';
 // import Counter from './components/counter';
-import { TransactionCard } from './components';
+import { TransactionList } from './components';
 
 // Wykomentowałam, bo przerzuciłam komponentu do oddzielnego katalogu
 // Tworzę obiekt, który ma być zwykła zmienną / funkcją
@@ -58,7 +58,7 @@ class App extends Component {
         {/*<HelloStateless name="Magda"/>*/}
           {/*<HelloStateful name="Seba"/>*/}
           {/*<Counter/>*/}
-          <TransactionCard item={this.state.transactions[0]}/>
+          <TransactionList items = {this.state.transactions}/>
       </div>
     );
   }
