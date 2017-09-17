@@ -2,9 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TransactionCard from './transaction-card';
 
-const TransactionList = ({ items }) => (
+const TransactionList = ({ items, handleRemoveTransaction }) => (
     <div>
-    {items.map(item => <TransactionCard key={item.id} item={item}/>)}
+        {items.map(item => (
+            <TransactionCard
+                key={item.id}
+                item={item}
+                onRemoveTransaction={handleRemoveTransaction}
+            />
+        ))}
     </div>
 );
 

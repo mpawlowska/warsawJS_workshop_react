@@ -48,6 +48,13 @@ class App extends Component {
         ]
     };
 
+    handleRemoveTransaction = (id) => {
+        this.setState({
+            transactions: this.state.transactions.filter(transaction => transaction.id !== id)
+        })
+    };
+
+
   render() {
     return (
       <div className="App">
@@ -58,7 +65,12 @@ class App extends Component {
         {/*<HelloStateless name="Magda"/>*/}
           {/*<HelloStateful name="Seba"/>*/}
           {/*<Counter/>*/}
-          <TransactionList items = {this.state.transactions}/>
+          {/*// poniżej przekazuję props*/}
+          <TransactionList
+              items = {this.state.transactions}
+              // poniżej nie wywołuję funkcji, tylko tworzę jakby jej body
+              handleRemoveTransaction={this.handleRemoveTransaction}
+          />
       </div>
     );
   }

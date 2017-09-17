@@ -28,9 +28,18 @@
   padding: 10px;
   width: 700px;
   margin: 5px;
+  position: relative;
 }
 
 .Transaction-card__assets {
   display: flex;
   justify-content: space-between;
+}
+
+.Transaction-card__remove {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: red;
+  cursor: pointer;
 }
