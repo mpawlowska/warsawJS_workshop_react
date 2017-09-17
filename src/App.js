@@ -54,6 +54,16 @@ class App extends Component {
         })
     };
 
+    handleAddTransaction = (e, transaction) => {
+        e.preventDefault();
+        // const newArray = this.state.transaction;
+        // newArray.push(transaction);
+
+        this.setState({
+            transactions: [...this.state.transactions, transaction]  // to jest zamiast tego wykomentowanego powyżej - to samo zrobi
+        })
+    };
+
 
   render() {
     return (
@@ -70,6 +80,7 @@ class App extends Component {
               items = {this.state.transactions}
               // poniżej nie wywołuję funkcji, tylko tworzę jakby jej body
               handleRemoveTransaction={this.handleRemoveTransaction}
+              handleAddTransaction={this.handleAddTransaction}
           />
       </div>
     );

@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TransactionCard from './transaction-card';
+import TransactionForm from './transaction-form';
 
-const TransactionList = ({ items, handleRemoveTransaction }) => (
+const TransactionList = ({ items, handleRemoveTransaction, handleAddTransaction }) => (
     <div>
+        <TransactionForm onsubmit={handleAddTransaction}/>
         {items.map(item => (
             <TransactionCard
                 key={item.id}
@@ -13,7 +15,6 @@ const TransactionList = ({ items, handleRemoveTransaction }) => (
         ))}
     </div>
 );
-
 
 TransactionList.propTypes = {
     items: PropTypes.array.isRequired
