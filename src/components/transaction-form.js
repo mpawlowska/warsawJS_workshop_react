@@ -62,5 +62,5 @@ class TransactionForm extends Component {
 export default TransactionForm;
 
 
-{/*// wcześniej zamiast powyższej linijki miałam to co poniżej wykomentowane, ale odką∂ stworzyłam komponent input mam to zdefiniowane w tym oddzielnym pliku*/}
-{/*onChange={(e) => this.handleInputChange('category', e.target.value)}*/}
+// wcześniej zamiast powyższej linijki miałam to co poniżej wykomentowane, ale odką∂ stworzyłam komponent input mam to zdefiniowane w tym oddzielnym pliku*/}
+//*onChange={(e) => this.handleInputChange('category', e.target.value)}*/}

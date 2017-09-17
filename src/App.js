@@ -5,6 +5,7 @@ import './App.css';
 // import HelloStateful from './components/hello-stateful';
 // import Counter from './components/counter';
 import { TransactionList } from './components';
+import { CategoryList } from './components';
 
 // Wykomentowałam, bo przerzuciłam komponentu do oddzielnego katalogu
 // Tworzę obiekt, który ma być zwykła zmienną / funkcją
@@ -45,6 +46,26 @@ class App extends Component {
                 date: '26.08.2017',
                 category: 'Samochód'
             }
+        ],
+        categories: [
+            {
+                id: 1,
+                name: 'Edukacja',
+                budgeted: 100,
+                activity: 50
+            },
+            {
+                id: 2,
+                name: 'Transport',
+                budgeted: 200,
+                activity: 123
+            },
+            {
+                id: 3,
+                name: 'Samochód',
+                budgeted: 300,
+                activity: 170
+            }
         ]
     };
 
@@ -66,27 +87,29 @@ class App extends Component {
         })
     };
 
-
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        {/*<HelloStateless name="Magda"/>*/}
-          {/*<HelloStateful name="Seba"/>*/}
-          {/*<Counter/>*/}
-          {/*// poniżej przekazuję props*/}
-          <TransactionList
-              items = {this.state.transactions}
-              // poniżej nie wywołuję funkcji, tylko tworzę jakby jej body
-              handleRemoveTransaction={this.handleRemoveTransaction}
-              handleAddTransaction={this.handleAddTransaction}
-          />
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="App">
+                <div className="App-header">
+                    <img src={logo} className="App-logo" alt="logo"/>
+                    <h2>Welcome to React</h2>
+                </div>
+                {/*<HelloStateless name="Magda"/>*/}
+                {/*<HelloStateful name="Seba"/>*/}
+                {/*<Counter/>*/}
+                {/*// poniżej przekazuję props*/}
+                <TransactionList
+                    items={this.state.transactions}
+                    // poniżej nie wywołuję funkcji, tylko tworzę jakby jej body
+                    handleRemoveTransaction={this.handleRemoveTransaction}
+                    handleAddTransaction={this.handleAddTransaction}
+                />
+                <CategoryList
+                    items={this.state.categories}
+                />
+            </div>
+        );
+    }
 }
 
 export default App;
