@@ -66,7 +66,8 @@ class App extends Component {
                 budgeted: 300,
                 activity: 170
             }
-        ]
+        ],
+        currentView: 'transactions'
     };
 
     handleRemoveTransaction = (id) => {
@@ -101,6 +102,10 @@ class App extends Component {
         this.setState({ categories });
     };
 
+    handleChangeView = (view) => {
+        this.setState({ currentView: view });
+    };
+
     render() {
         return (
             <div className="App">
@@ -112,16 +117,22 @@ class App extends Component {
                 {/*<HelloStateful name="Seba"/>*/}
                 {/*<Counter/>*/}
                 {/*// poniżej przekazuję props*/}
-                <TransactionList
-                    items={this.state.transactions}
+                <button onClick={ () => this.handleChangeView('transactions')}>Transactions</button>
+                <button onClick={ () => this.handleChangeView('categories')}>Categories</button>
+                {this.state.currentView === 'transactions' ? (
+                    < TransactionList
+                    items = {this.state.transactions}
                     // poniżej nie wywołuję funkcji, tylko tworzę jakby jej body
                     handleRemoveTransaction={this.handleRemoveTransaction}
                     handleAddTransaction={this.handleAddTransaction}
-                />
-                <CategoryList
+                    />
+                    ) : (
+                    <CategoryList
                     items={this.state.categories}
                     handleChangeCategoryBudget={this.handleChangeCategoryBudget}
-                />
+                    />
+                    )
+                }
             </div>
         );
     }
