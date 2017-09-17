@@ -4,7 +4,7 @@ import TransactionCard from './transaction-card';
 
 const TransactionList = ({ items }) => (
     <div>
-    {items.map(item => <TransactionCard item={item}/>)}
+    {items.map(item => <TransactionCard key={item.id} item={item}/>)}
     </div>
 );
 
